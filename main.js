@@ -244,22 +244,75 @@
 // console.log(Math.sqrt(30));
 
 // objects
-function objectMethod(obj){
-    console.log("Original Object: " + obj);
+// function objectMethod(obj){
+//     console.log("Original Object: " + obj);
     
-    console.log("Keys of objects are: " , Object.keys(obj));
-    console.log("Values of objects are: " , Object.values(obj));
-    console.log("Entries of objects are: " , Object.entries(obj));
+//     console.log("Keys of objects are: " , Object.keys(obj));
+//     console.log("Values of objects are: " , Object.values(obj));
+//     console.log("Entries of objects are: " , Object.entries(obj));
     
-    let hasProp = obj.hasOwnProperty("key1");
-    console.log("After hasownProperty(): " , hasProp);
+//     let hasProp = obj.hasOwnProperty("key1");
+//     console.log("After hasownProperty(): " , hasProp);
 
-    let newObj = Object.assign({},obj,{key4:"val4"});
-    console.log("After Object.assign(): ", newObj);
-}
-const sampleObjects={
-    key1: "val1",
-    key2: "val2",
-    key3: "val3"
-}
-objectMethod(sampleObjects);
+//     let newObj = Object.assign({},obj,{key4:"val4"});
+//     console.log("After Object.assign(): ", newObj);
+// }
+// const sampleObjects={
+//     key1: "val1",
+//     key2: "val2",
+//     key3: "val3"
+// }
+// objectMethod(sampleObjects);
+
+// anonymous function
+
+// function sumOfSomething(a,b,fn){
+//     console.log(fn);
+//     return fn(a)+fn(b);
+// }
+// console.log(sumOfSomething(2,2,function (n){
+//     return n*n*n;
+// }));
+
+// Async fxns
+
+// setTimeout
+
+// function findSum(n){
+//     let ans=0;
+//     for(let i=0;i<n;i++) ans += i;
+//     return ans;
+// }
+// function findsumTill100(){
+//     console.log(findSum(100));
+// }
+// setTimeout(findsumTill100,2000); // call the fxn once after fix time(in millisecond)
+// console.log("Hello World");
+
+// read file
+// const fs = require("fs");
+// fs.readFile("a.txt","utf-8",function (error,data){
+//     console.log(data);
+// });
+// console.log("Hi there");
+
+// for(let i=0;i<10000;i++){
+
+// }
+// console.log("Hii there2");
+
+
+// function findSum(n){
+//     let ans=0;
+//     for(let i=0;i<n;i++) ans += i;
+//     return ans;
+// }
+// function findsumTill10(){
+//     console.log(findSum(10));
+// }
+// function findsumTill20(){
+//     console.log(findSum(20));
+// }
+// setTimeout(findsumTill10,2000); // call the fxn once after fix time(in millisecond)
+// console.log("Hello World");
+// setTimeout(findsumTill20,2000);
