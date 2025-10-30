@@ -316,3 +316,112 @@
 // setTimeout(findsumTill10,2000); // call the fxn once after fix time(in millisecond)
 // console.log("Hello World");
 // setTimeout(findsumTill20,2000);
+
+// const fs = require('fs')
+// my own async fxn
+// function nishantReadsfile(cb){
+//     fs.readFile('a.txt','utf-8',function (err,data){
+//         cb(data);
+//     });
+// };
+// function ondone(data){
+//     console.log(data);
+// }
+// nishantReadsfile(ondone);
+
+// promises better way to write above fxn
+// const fs = require('fs')
+// function nishantReadsfile(){
+//     return new Promise(function(resolve){
+//         fs.readFile('a.txt','utf-8',function(err,data){
+//             resolve(data);
+//         });
+//     })
+// }
+// function ondone(data){
+//     console.log(data);
+// }
+// nishantReadsfile().then(ondone);
+
+// function asyncFxn(){
+//     return new Promise(function(resolve){
+//         setTimeout(resolve,2000);
+//     });
+// }
+// asyncFxn().then(function (){
+//     console.log("Hi there");
+// });
+
+
+// async wait
+// function asyncFxn(){
+//     return new Promise(function(resolve){
+//         setTimeout(resolve("HI there"),2000);
+//     });
+// }
+// async function main(){
+//     const val = await asyncFxn()
+//     console.log(val);
+// }
+// main();
+
+// callback hell: callback leads to uncessary indentation
+
+// setTimeout(function(){
+//     console.log("HII There");
+//     setTimeout(function(){
+//         console.log("Hii There from inside");
+//     },2000);
+// },1000);
+
+// better readable way but thread get stuck so promises is used:
+// waitFor(1000);
+// console.log("HII There");
+// waitFor(2000);
+// console.log("HII There");
+
+// Promises
+// normal async fxn
+// function myOwnSetTimeout(cb, duration){
+//     setTimeout(cb,duration);
+// }
+// myOwnSetTimeout(function(){
+//     console.log("Hii there");
+// },1000);
+// prmosified
+// function prmosifiedMyOwnSetTimeout(duration){
+//     const p = new Promise(function (resolve){
+//         // setTimeout(resolve, duration);
+//         setTimeout(function(){
+//             resolve();
+//         }, duration);
+//     });
+//     return p;
+// }
+// const ans = prmosifiedMyOwnSetTimeout(1000);
+// console.log(ans);
+// ans.then(function(){
+//     console.log("Hii There");
+// })
+
+// nested async fxn
+function prmosifiedMyOwnSetTimeout(duration){
+    const p = new Promise(function (resolve){
+        setTimeout(resolve, duration);
+    });
+    return p;
+}
+// prmosifiedMyOwnSetTimeout(1000).then(function(){
+//     console.log("FirstDone");
+//     prmosifiedMyOwnSetTimeout(2000).then(function(){
+//         console.log("SecondDone");
+//     })
+// })
+
+// promise chaining better way to write above things
+prmosifiedMyOwnSetTimeout(1000).then(function(){
+    console.log("FirstDone");
+    return prmosifiedMyOwnSetTimeout(2000)
+}).then(function(){
+        console.log("SecondDone");
+    })
